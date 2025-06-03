@@ -1,0 +1,1 @@
+/home/sitek/.vimrc

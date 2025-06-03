@@ -1,0 +1,4 @@
+#!/bin/sh
+# feh --no-fehbg --bg-scale '/home/sitek/Pictures/wallpaper_10.jpg' 
+feh --no-fehbg --bg-scale '/home/sitek/Pictures/piranhas.jpg'
+#feh --no-fehbg --bg-tile '/home/sitek/Pictures/wallpaper.png'

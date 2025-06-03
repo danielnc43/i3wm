@@ -1,0 +1,96 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+#general {
+#	colors = true
+#		color_good =     '#59C364'  
+#		color_degraded = '#D99452'  
+#		color_bad =      '#D6483A'   
+#		interval = 5
+#}
+
+
+general {
+  output_format = "i3bar"
+  colors = true
+  color_good = "#50FA7B"
+  color_degraded = "#F1FA8C"
+  color_bad = "#FF5555"
+  interval = 5
+}
+
+#order += "ipv6"
+order += "wireless _first_"
+#order += "ethernet _first_"
+order += "battery all"
+order += "volume master"
+order += "disk /"
+#order += "disk /mnt/windows"
+order += "load"
+order += "memory"
+order += "cpu_usage"
+order += "tztime local"
+
+
+volume master {
+        format = " : %volume"
+        format_muted = ": muted (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+wireless _first_ {
+        format_up = " %essid (%quality)  %ip"
+        format_down = ""
+}
+
+ethernet _first_ {
+        format_up = ": %ip (%speed)  %ip"
+        format_down = ""
+}
+
+battery all {
+	#format = " %status %percentage %remaining"
+		#format = "%status %percentage %remaining"
+		format = "%status %percentage %remaining (%emptytime %consumption)"
+		#format = "%status %percentage %remaining"
+		format_down = "  - No battery!"
+		status_bat = " "
+		status_chr = ""
+		low_threshold = "20"
+		threshold_type = "time"
+		status_full = " :FULL"
+}
+
+disk "/" {
+        format = "  / %avail / %total"
+}
+
+disk "/mnt/windows" {
+        format = " %avail"
+}
+
+load {
+        format = " %1min %5min %15min"
+}
+
+memory {
+        format = " %used / %total"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+}
+
+tztime local {
+        #format = " %Y-%m-%d  %H:%M:%S"
+        format = " %m-%d  %H:%M:%S %Z"
+}
+
+cpu_usage {
+        format = " %usage"
+}
+
